@@ -103,9 +103,9 @@ public class CrawlingProvider {
                 }
             }
             // 자바 2차원접근 리스트이름.get(index).get(index)
-            System.out.println(newsList.size());
-            System.out.println(newsList);
-            System.out.println(page);
+//            System.out.println(newsList.size());
+//            System.out.println(newsList);
+//            System.out.println(page);
             ArrayList<ArrayList<String>> getNewsList10Res = newsList;
             return getNewsList10Res;
 
@@ -139,7 +139,7 @@ public class CrawlingProvider {
 //            String FinalArticle2 = FinalArticle1.replaceAll("\n","\\r\\n");
             //System.out.println(FinalArticle1);
 
-            System.out.println(FinalArticle);
+//            System.out.println(FinalArticle);
 
             return new GetNewsArticleRes(FinalArticle);
         }

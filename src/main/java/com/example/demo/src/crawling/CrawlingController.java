@@ -76,7 +76,7 @@ public class CrawlingController {
                 return new BaseResponse<>(BaseResponseStatus.POST_POSTS_INVALID_CONTENTS);
             }
 
-            System.out.println(getNewsArticleReq.getUrl());
+//            System.out.println(getNewsArticleReq.getUrl());
 
             GetNewsArticleRes getNewsArticleRes = crawlingProvider.getArticleByUrl(getNewsArticleReq.getUrl());
 

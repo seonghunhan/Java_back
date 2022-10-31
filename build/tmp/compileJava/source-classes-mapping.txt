@@ -40,14 +40,16 @@ com/example/demo/src/post/model/GetUserInfoRes.java
  com.example.demo.src.post.model.GetUserInfoRes
 com/example/demo/src/user/model/GetUserInfoRes.java
  com.example.demo.src.user.model.GetUserInfoRes
-com/example/demo/src/auth/AuthProvider.java
- com.example.demo.src.auth.AuthProvider
+com/example/demo/src/crawling/CrawlingController.java
+ com.example.demo.src.crawling.CrawlingController
 com/example/demo/src/post/model/GetUserPostsRes.java
  com.example.demo.src.post.model.GetUserPostsRes
 com/example/demo/src/user/model/GetUserFeedRes.java
  com.example.demo.src.user.model.GetUserFeedRes
 com/example/demo/src/crawling/model/GetNewsListRes.java
  com.example.demo.src.crawling.model.GetNewsListRes
+com/example/demo/src/crawling/model/GetNewsList10Res.java
+ com.example.demo.src.crawling.model.GetNewsList10Res
 com/example/demo/utils/SHA256.java
  com.example.demo.utils.SHA256
 com/example/demo/src/user/model/PostUserReq.java
@@ -58,6 +60,8 @@ com/example/demo/src/user/UserDao.java
  com.example.demo.src.user.UserDao
 com/example/demo/src/post/model/PostPostsRes.java
  com.example.demo.src.post.model.PostPostsRes
+com/example/demo/src/crawling/model/GetNewsArticleRes.java
+ com.example.demo.src.crawling.model.GetNewsArticleRes
 com/example/demo/src/WebSecurityConfig.java
  com.example.demo.src.WebSecurityConfig
 com/example/demo/src/auth/AuthDao.java
@@ -80,6 +84,8 @@ com/example/demo/src/auth/AuthController.java
  com.example.demo.src.auth.AuthController
 com/example/demo/src/user/model/User.java
  com.example.demo.src.user.model.User
+com/example/demo/src/crawling/model/GetNewsArticleReq.java
+ com.example.demo.src.crawling.model.GetNewsArticleReq
 com/example/demo/src/post/model/PostPostsReq.java
  com.example.demo.src.post.model.PostPostsReq
 com/example/demo/DemoApplication.java
@@ -90,19 +96,13 @@ com/example/demo/utils/JwtService.java
  com.example.demo.utils.JwtService
 com/example/demo/src/auth/model/User.java
  com.example.demo.src.auth.model.User
-com/example/demo/src/crawling/T.java
- com.example.demo.src.crawling.T
+com/example/demo/src/crawling/CrawlingProvider.java
+ com.example.demo.src.crawling.CrawlingProvider
 com/example/demo/src/post/model/PostImgsUrlReq.java
  com.example.demo.src.post.model.PostImgsUrlReq
 com/example/demo/src/user/UserProvider.java
  com.example.demo.src.user.UserProvider
-com/example/demo/src/crawling/model/GetNewsList10Res.java
- com.example.demo.src.crawling.model.GetNewsList10Res
-com/example/demo/src/crawling/model/GetNewsArticleReq.java
- com.example.demo.src.crawling.model.GetNewsArticleReq
-com/example/demo/src/crawling/model/GetNewsArticleRes.java
- com.example.demo.src.crawling.model.GetNewsArticleRes
-com/example/demo/src/crawling/CrawlingProvider.java
- com.example.demo.src.crawling.CrawlingProvider
-com/example/demo/src/crawling/CrawlingController.java
- com.example.demo.src.crawling.CrawlingController
+com/example/demo/src/crawling/T.java
+ com.example.demo.src.crawling.T
+com/example/demo/src/auth/AuthProvider.java
+ com.example.demo.src.auth.AuthProvider
