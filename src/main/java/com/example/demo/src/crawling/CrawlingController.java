@@ -38,11 +38,11 @@ public class CrawlingController {
 
     /**
      * 뉴스리스트API
-     * [GET] /crawling/newsList
+     * [POST] /crawling/newsList
      * @return BaseResponse<ArrayList<ArrayList<String>>>
      */
     @ResponseBody
-    @GetMapping("/newsList")
+    @PostMapping("/newsList")
     public BaseResponse<ArrayList<ArrayList<String>>> createNewsList(@RequestBody GetNewsListReq getNewsListReq) {
         try {
             // 이거 나중에 수정
@@ -63,11 +63,11 @@ public class CrawlingController {
 
     /**
      * 뉴스기사API
-     * [GET] /crawling/article
+     * [POST] /crawling/article
      * @return BaseResponse<String>
      */
     @ResponseBody
-    @GetMapping("/article")
+    @PostMapping("/article")
     public BaseResponse<GetNewsArticleRes> createArticle(@RequestBody GetNewsArticleReq getNewsArticleReq) {
         try {
 
