@@ -51,6 +51,33 @@ public class UserProvider {
             throw new BaseException(DATABASE_ERROR);
         }
     }
+    public GetUserNicknameRes  retrieveUserNickname(String nickName) throws BaseException{
+        ArrayList<Integer> checkList = new ArrayList<Integer>(userDao.checkInfo(null, nickName, null));
+        System.out.println(checkList);
+        boolean isTrue = false; // default : 사용 불가능
+        if(checkList.get(1) == 0) {
+            isTrue = true; // 사용가능
+        }
+        try{
+            return new GetUserNicknameRes(isTrue); // set으로 모델 안바꾸고 이렇게 파람스로 바꾸기!!
+        } catch (Exception exception){
+            throw new BaseException(DATABASE_ERROR);
+        }
+    }
+
+    public GetUserIdRes  retrieveUserId(String id) throws BaseException{
+        ArrayList<Integer> checkList = new ArrayList<Integer>(userDao.checkInfo(id, null, null));
+        System.out.println(checkList);
+        boolean isTrue = false; // default : 사용 불가능
+        if(checkList.get(0) == 0) {
+            isTrue = true; // 사용가능
+        }
+        try{
+            return new GetUserIdRes(isTrue); // set으로 모델 안바꾸고 이렇게 파람스로 바꾸기!!
+        } catch (Exception exception){
+            throw new BaseException(DATABASE_ERROR);
+        }
+    }
 
 
 //    public GetUserFeedRes retrieveUserFeed(int userIdxByjwt, int userIdx) throws BaseException{
