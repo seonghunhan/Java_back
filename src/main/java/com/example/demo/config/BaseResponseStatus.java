@@ -48,6 +48,7 @@ public enum BaseResponseStatus {
     POST_USERS_UNMATCH_NEWPASSWORD(false, 2041, "새로운 비밀번호가 서로 다릅니다."),
     POST_USERS_INVALID_NICKNAME(false, 2042, "닉네임 형식을 확인해주세요"),
     POST_USERS_NOT_EXISTS_NICKNAME(false,2043,"사용가능한 닉네임입니다"),
+    POST_CRAWLING_EMPTY_PAGE_INFO(false, 2044, "page를 입력해주세요"),
 
     /**
      * 3000 : Response 오류
