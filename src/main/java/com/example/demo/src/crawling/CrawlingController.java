@@ -48,7 +48,7 @@ public class CrawlingController {
     public BaseResponse<ArrayList<ArrayList<String>>> createNewsList(@RequestBody GetNewsListReq getNewsListReq) {
         try {
             // 이거 나중에 수정
-            if (getNewsListReq.getKeyword().length() <1) {
+            if (getNewsListReq.getKeyword() == null) {
 
                 Random random = new Random(); // 랜덤 객체 생성
                 random.setSeed(System.currentTimeMillis());
@@ -111,7 +111,7 @@ public class CrawlingController {
         try {
 
             // 이거 나중에 수정
-            if (getNewsArticleReq.getUrl().length() <1) {
+            if (getNewsArticleReq.getUrl().length() < 1) {
                 return new BaseResponse<>(BaseResponseStatus.POST_POSTS_INVALID_CONTENTS);
             }
 
