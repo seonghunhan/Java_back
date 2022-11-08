@@ -27,7 +27,18 @@ public class UserDao {
 
         //last_insert_id 함수는 테이블의 마지막 auto_increment 값을 리턴한다. (mysql)
         String lastInserIdQuery = "select last_insert_id()";
-        return this.jdbcTemplate.queryForObject(lastInserIdQuery,int.class);
+        int userIdx = this.jdbcTemplate.queryForObject(lastInserIdQuery,int.class);
+
+        // 새로생긴 userIdx를 Keyword 테이블의 컬럼으로 추가
+        String addColumnUseridxQuery = "ALTER TABLE `Keyword` ADD `"+ userIdx +"` int NOT NULL";
+        this.jdbcTemplate.execute(addColumnUseridxQuery);
+
+        // 초기 키워드 5개에 default로 10 추가
+        String initAdd10KeywordQuery = "update Keyword set `"+ userIdx + "` = 10 where Keyword_List = ? or Keyword_List = ? or Keyword_List = ? or Keyword_List = ? or Keyword_List = ? ";
+        Object[] modifyKeywordParams = new Object[]{postUserReq.getKeyword1(), postUserReq.getKeyword2(), postUserReq.getKeyword3(), postUserReq.getKeyword4(), postUserReq.getKeyword5(), };
+        this.jdbcTemplate.update(initAdd10KeywordQuery,modifyKeywordParams);
+
+        return userIdx;
     }
 
     public int createUserNickname(PostUserReq postUserReq){

@@ -16,8 +16,8 @@ com/example/demo/src/crawling/model/GetNewsListReq.java
  com.example.demo.src.crawling.model.GetNewsListReq
 com/example/demo/src/auth/AuthProvider.java
  com.example.demo.src.auth.AuthProvider
-com/example/demo/src/user/UserDao.java
- com.example.demo.src.user.UserDao
+com/example/demo/src/crawling/CrawlingController.java
+ com.example.demo.src.crawling.CrawlingController
 com/example/demo/src/post/model/GetUserFeedRes.java
  com.example.demo.src.post.model.GetUserFeedRes
 com/example/demo/src/crawling/T.java
@@ -52,16 +52,16 @@ com/example/demo/src/crawling/model/GetNewsList10Res.java
  com.example.demo.src.crawling.model.GetNewsList10Res
 com/example/demo/utils/SHA256.java
  com.example.demo.utils.SHA256
-com/example/demo/src/user/model/PostUserReq.java
- com.example.demo.src.user.model.PostUserReq
+com/example/demo/src/crawling/model/GetNewsArticleRes.java
+ com.example.demo.src.crawling.model.GetNewsArticleRes
 com/example/demo/src/post/PostProvider.java
  com.example.demo.src.post.PostProvider
 com/example/demo/src/auth/model/PostAuthPasswordCheckReq.java
  com.example.demo.src.auth.model.PostAuthPasswordCheckReq
 com/example/demo/src/post/model/PostPostsRes.java
  com.example.demo.src.post.model.PostPostsRes
-com/example/demo/src/crawling/model/GetNewsArticleRes.java
- com.example.demo.src.crawling.model.GetNewsArticleRes
+com/example/demo/src/crawling/CrawlingProvider.java
+ com.example.demo.src.crawling.CrawlingProvider
 com/example/demo/src/WebSecurityConfig.java
  com.example.demo.src.WebSecurityConfig
 com/example/demo/src/auth/AuthDao.java
@@ -84,8 +84,8 @@ com/example/demo/src/post/PostController.java
  com.example.demo.src.post.PostController
 com/example/demo/src/auth/AuthService.java
  com.example.demo.src.auth.AuthService
-com/example/demo/src/crawling/CrawlingController.java
- com.example.demo.src.crawling.CrawlingController
+com/example/demo/src/user/model/GetUserIdRes.java
+ com.example.demo.src.user.model.GetUserIdRes
 com/example/demo/config/BaseResponse.java
  com.example.demo.config.BaseResponse
 com/example/demo/src/auth/AuthController.java
@@ -100,12 +100,12 @@ com/example/demo/config/BaseException.java
  com.example.demo.config.BaseException
 com/example/demo/utils/JwtService.java
  com.example.demo.utils.JwtService
-com/example/demo/src/crawling/CrawlingProvider.java
- com.example.demo.src.crawling.CrawlingProvider
+com/example/demo/src/user/UserDao.java
+ com.example.demo.src.user.UserDao
+com/example/demo/src/user/model/PostUserReq.java
+ com.example.demo.src.user.model.PostUserReq
 com/example/demo/src/user/UserService.java
  com.example.demo.src.user.UserService
-com/example/demo/src/user/model/GetUserIdRes.java
- com.example.demo.src.user.model.GetUserIdRes
 com/example/demo/src/user/UserController.java
  com.example.demo.src.user.UserController
 com/example/demo/src/user/UserProvider.java

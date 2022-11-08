@@ -135,13 +135,18 @@ public class CrawlingProvider {
 
             String FinalArticle = contents2.replaceAll("\\\\n","\n");
 
-//            String FinalArticle1 = contents2.replaceAll("\\\\n", "\n");
-//            String FinalArticle2 = FinalArticle1.replaceAll("\n","\\r\\n");
-            //System.out.println(FinalArticle1);
+            // 뉴스 타이틀
+            Elements elements1 = doc.getElementsByAttributeValue("class", "media_end_head_headline");
+            String title = elements1.text();
 
-//            System.out.println(FinalArticle);
 
-            return new GetNewsArticleRes(FinalArticle);
+            // 뉴스 날짜
+            Elements elements2 = doc.getElementsByAttributeValue("class", "media_end_head_info_datestamp_time _ARTICLE_DATE_TIME");
+            String date = elements2.text();
+
+
+
+            return new GetNewsArticleRes(FinalArticle,title,date);
         }
         catch (Exception exception) {
             throw new BaseException(DATABASE_ERROR);

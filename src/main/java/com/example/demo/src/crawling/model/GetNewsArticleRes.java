@@ -11,6 +11,8 @@ import lombok.Setter;
 public class GetNewsArticleRes {
 
     private String ArticleText;
+    private String Title;
+    private String date;
 
 
 }

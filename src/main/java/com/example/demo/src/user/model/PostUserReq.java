@@ -17,4 +17,9 @@ public class PostUserReq {
     private String email;
     private int userIdx;
     private String mbti;
+    private String keyword1;
+    private String keyword2;
+    private String keyword3;
+    private String keyword4;
+    private String keyword5;
 }
