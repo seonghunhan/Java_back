@@ -8,6 +8,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class GetNewsListReq {
+    private int userIdx;
     private String keyword;
     private int page;
 }

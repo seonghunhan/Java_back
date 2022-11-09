@@ -2,10 +2,7 @@ package com.example.demo.src.crawling;
 
 
 import com.example.demo.config.BaseException;
-import com.example.demo.src.post.PostDao;
-import com.example.demo.src.post.PostProvider;
-import com.example.demo.src.post.model.PostPostsReq;
-import com.example.demo.src.post.model.PostPostsRes;
+import com.example.demo.src.crawling.model.GetNewsArticleReq;
 import com.example.demo.utils.JwtService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,27 +16,26 @@ import static com.example.demo.config.BaseResponseStatus.DATABASE_ERROR;
 public class CrawlingService {
     final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    private final PostDao postDao;
-    private final PostProvider userProvider;
+    private final CrawlingDao crawlingDao;
+    private final CrawlingProvider crawlingProvider;
     private final JwtService jwtService;
 
 
     @Autowired
-    public CrawlingService(PostDao postDao, PostProvider userProvider, JwtService jwtService) {
-        this.postDao = postDao;
-        this.userProvider = userProvider;
+    public CrawlingService(CrawlingDao crawlingDao, CrawlingProvider crawlingProvider, JwtService jwtService) {
+        this.crawlingDao = crawlingDao;
+        this.crawlingProvider = crawlingProvider;
         this.jwtService = jwtService;
 
     }
-            // 컨트롤러로 리턴하는값이 PostPostsRes였음
-    public PostPostsRes createPosts(int userIdx, PostPostsReq postPostsReq) throws  BaseException{ //컨트롤러에서 userIdx랑 바디값을 받았음)
+
+    public void stackKeyword(GetNewsArticleReq getNewsArticleReq) throws  BaseException{
 
         try{
-            int postIdx = postDao.insertPosts(userIdx,postPostsReq.getContent()); //여기에는 idx와 게시글내용만 넣겠다
-            for (int i=0; i<postPostsReq.getPostImgUrls().size(); i++){ // 이미지 사이즈만큼 반복문 돌리고 insertPostImgs에 그 갯수만큼 넣는것
-                postDao.insertPostImgs(postIdx, postPostsReq.getPostImgUrls().get(i)); // 반복문을 돌면서 한개씩 db에 저장되는것
-            }
-            return new PostPostsRes(postIdx); // PostPostsRes객체에 postIdx를 넣어서 보내주기
+
+            crawlingDao.updateKeywordStack(getNewsArticleReq);
+
+            return;
         }
         catch (Exception exception){
             throw new BaseException(DATABASE_ERROR);

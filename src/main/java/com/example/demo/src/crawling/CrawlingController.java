@@ -6,7 +6,6 @@ import com.example.demo.config.BaseResponseStatus;
 import com.example.demo.src.crawling.model.GetNewsArticleReq;
 import com.example.demo.src.crawling.model.GetNewsArticleRes;
 import com.example.demo.src.crawling.model.GetNewsListReq;
-import com.example.demo.src.post.PostService;
 import com.example.demo.utils.JwtService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,6 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static com.example.demo.config.BaseResponseStatus.INVALID_USER_JWT;
+
 @RestController
 @RequestMapping("/crawling")
 public class CrawlingController {
@@ -25,14 +26,14 @@ public class CrawlingController {
     @Autowired
     private final CrawlingProvider crawlingProvider;
     @Autowired
-    private final PostService postService;
+    private final CrawlingService crawlingService;
     @Autowired
     private final JwtService jwtService;
 
 
-    public CrawlingController(CrawlingProvider crawlingProvider, PostService postService, JwtService jwtService) {
+    public CrawlingController(CrawlingProvider crawlingProvider, CrawlingService crwalingService, JwtService jwtService) {
         this.crawlingProvider = crawlingProvider;
-        this.postService = postService;
+        this.crawlingService = crwalingService;
         this.jwtService = jwtService;
 
     }
@@ -47,6 +48,16 @@ public class CrawlingController {
     @PostMapping("/newsList")
     public BaseResponse<ArrayList<ArrayList<String>>> createNewsList(@RequestBody GetNewsListReq getNewsListReq) {
         try {
+            //jwt에서 idx 추출.
+            //getUserIdx 타고 들가면 거기서 jwt 키 있는지 없는지 유효성 검사 실행함
+            int userIdxByJwt = jwtService.getUserIdx();
+            int userIdx = getNewsListReq.getUserIdx();
+
+            // 실제 Idx와 jwt로 추출한 Idx가 맞는지 유효성검사
+            if(userIdx != userIdxByJwt) {
+                return new BaseResponse<>(INVALID_USER_JWT);
+            }
+
             // 이거 나중에 수정
             if (getNewsListReq.getKeyword() == null) {
 
@@ -109,14 +120,24 @@ public class CrawlingController {
     @PostMapping("/article")
     public BaseResponse<GetNewsArticleRes> createArticle(@RequestBody GetNewsArticleReq getNewsArticleReq) {
         try {
+            //jwt에서 idx 추출.
+            //getUserIdx 타고 들가면 거기서 jwt 키 있는지 없는지 유효성 검사 실행함
+            int userIdxByJwt = jwtService.getUserIdx();
+            int userIdx = getNewsArticleReq.getUserIdx();
 
+            // 실제 Idx와 jwt로 추출한 Idx가 맞는지 유효성검사
+            if(userIdx != userIdxByJwt) {
+                return new BaseResponse<>(INVALID_USER_JWT);
+            }
             // 이거 나중에 수정
             if (getNewsArticleReq.getUrl().length() < 1) {
                 return new BaseResponse<>(BaseResponseStatus.POST_POSTS_INVALID_CONTENTS);
             }
 
-//            System.out.println(getNewsArticleReq.getUrl());
+            //DB에 해당 키워드 Stack 1씩 쌓기
+            crawlingService.stackKeyword(getNewsArticleReq);
 
+            //url에 접근하여 타이틀,날짜,기사내용 파싱
             GetNewsArticleRes getNewsArticleRes = crawlingProvider.getArticleByUrl(getNewsArticleReq.getUrl());
 
             return new BaseResponse<>(getNewsArticleRes);
