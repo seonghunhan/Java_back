@@ -60,8 +60,8 @@ com/example/demo/src/user/model/PostUserReq.java
  com.example.demo.src.user.model.PostUserReq
 com/example/demo/src/post/PostProvider.java
  com.example.demo.src.post.PostProvider
-com/example/demo/src/user/UserDao.java
- com.example.demo.src.user.UserDao
+com/example/demo/src/crawling/CrawlingController.java
+ com.example.demo.src.crawling.CrawlingController
 com/example/demo/src/post/model/PostPostsRes.java
  com.example.demo.src.post.model.PostPostsRes
 com/example/demo/src/crawling/model/GetNewsArticleRes.java
@@ -88,25 +88,25 @@ com/example/demo/src/post/PostController.java
  com.example.demo.src.post.PostController
 com/example/demo/src/auth/AuthService.java
  com.example.demo.src.auth.AuthService
-com/example/demo/src/user/UserController.java
- com.example.demo.src.user.UserController
+com/example/demo/src/crawling/CrawlingProvider.java
+ com.example.demo.src.crawling.CrawlingProvider
 com/example/demo/config/BaseResponse.java
  com.example.demo.config.BaseResponse
 com/example/demo/src/auth/AuthController.java
  com.example.demo.src.auth.AuthController
-com/example/demo/src/user/UserService.java
- com.example.demo.src.user.UserService
+com/example/demo/src/crawling/CrawlingService.java
+ com.example.demo.src.crawling.CrawlingService
 com/example/demo/config/BaseResponseStatus.java
  com.example.demo.config.BaseResponseStatus
 com/example/demo/config/BaseException.java
  com.example.demo.config.BaseException
 com/example/demo/utils/JwtService.java
  com.example.demo.utils.JwtService
-com/example/demo/src/crawling/CrawlingProvider.java
- com.example.demo.src.crawling.CrawlingProvider
+com/example/demo/src/user/UserDao.java
+ com.example.demo.src.user.UserDao
+com/example/demo/src/user/UserService.java
+ com.example.demo.src.user.UserService
+com/example/demo/src/user/UserController.java
+ com.example.demo.src.user.UserController
 com/example/demo/src/user/UserProvider.java
  com.example.demo.src.user.UserProvider
-com/example/demo/src/crawling/CrawlingService.java
- com.example.demo.src.crawling.CrawlingService
-com/example/demo/src/crawling/CrawlingController.java
- com.example.demo.src.crawling.CrawlingController

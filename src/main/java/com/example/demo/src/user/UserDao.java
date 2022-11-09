@@ -29,6 +29,14 @@ public class UserDao {
         String lastInserIdQuery = "select last_insert_id()";
         int userIdx = this.jdbcTemplate.queryForObject(lastInserIdQuery,int.class);
 
+
+
+        return userIdx;
+    }
+
+    public void updateKeyword(PostUserReq postUserReq) {
+        int userIdx = postUserReq.getUserIdx();
+
         // 새로생긴 userIdx를 Keyword 테이블의 컬럼으로 추가
         String addColumnUseridxQuery = "ALTER TABLE `Keyword` ADD `"+ userIdx +"` int NOT NULL";
         this.jdbcTemplate.execute(addColumnUseridxQuery);
@@ -38,7 +46,7 @@ public class UserDao {
         Object[] modifyKeywordParams = new Object[]{postUserReq.getKeyword1(), postUserReq.getKeyword2(), postUserReq.getKeyword3(), postUserReq.getKeyword4(), postUserReq.getKeyword5(), };
         this.jdbcTemplate.update(initAdd10KeywordQuery,modifyKeywordParams);
 
-        return userIdx;
+        return;
     }
 
     public int createUserNickname(PostUserReq postUserReq){

@@ -69,6 +69,40 @@ public class UserController {
         }
     }
 
+    /**
+     * 회원가입 키워드5개 API (users)
+     * [POST] /users/signup/5keywords
+     * @return BaseResponse<PostUserRes>
+     */
+    // Body
+    @ResponseBody
+    @PostMapping("/signup/5keywords") // (POST) localhost:9000/users/signup/5keywords
+    public BaseResponse<PostUserRes> updateUserKeyword(@RequestBody PostUserReq postUserReq) {
+
+        //System.out.println(postUserReq.getId().getClass().getName());
+
+        // 회원가입 정보누락 Body Check
+        if(postUserReq.getKeyword1().length() == 0 || postUserReq.getKeyword2().length() == 0 || postUserReq.getKeyword3().length() == 0 || postUserReq.getKeyword4().length() == 0 || postUserReq.getKeyword5().length() == 0) {
+            return new BaseResponse<>(POST_USERS_EMPTY_INFO);
+        }
+
+        try{
+            //jwt에서 idx 추출.
+            //getUserIdx 타고 들가면 거기서 jwt 키 있는지 없는지 유효성 검사 실행함
+            int userIdxByJwt = jwtService.getUserIdx();
+            int userIdx = postUserReq.getUserIdx();
+
+            // 실제 Idx와 jwt로 추출한 Idx가 맞는지 유효성검사
+            if(userIdx != userIdxByJwt) {
+                return new BaseResponse<>(INVALID_USER_JWT);
+            }
+
+            PostUserRes postUserRes = userService.updateKeyword(postUserReq);
+            return new BaseResponse<>(postUserRes);
+        } catch(BaseException exception){
+            return new BaseResponse<>((exception.getStatus()));
+        }
+    }
 
     /**
      * 닉네임 중복체크 API (users)

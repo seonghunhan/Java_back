@@ -77,6 +77,18 @@ public class UserService {
 //        }
     }
 
+
+    public PostUserRes updateKeyword(PostUserReq postUserReq) throws BaseException {
+        try{
+            userDao.updateKeyword(postUserReq);
+            int userIdx = postUserReq.getUserIdx();
+            return new PostUserRes("default", userIdx,"default" );
+
+        } catch(Exception exception){
+            throw new BaseException(DATABASE_ERROR);
+        }
+    }
+
     public PostUserRes createNickname(PostUserReq postUserReq) throws BaseException {
         String nickName = postUserReq.getNickName();
         ArrayList<Integer> checkList = new ArrayList<Integer>(userProvider.check(null , nickName, null));
