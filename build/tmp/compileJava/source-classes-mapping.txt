@@ -1,5 +1,5 @@
-com/example/demo/src/crawling/T.java
- com.example.demo.src.crawling.T
+com/example/demo/src/post/PostController.java
+ com.example.demo.src.post.PostController
 com/example/demo/config/Constant.java
  com.example.demo.config.Constant
 com/example/demo/src/auth/model/PostAuthPasswordCheckRes.java
@@ -10,42 +10,44 @@ com/example/demo/utils/ValidationRegex.java
  com.example.demo.utils.ValidationRegex
 com/example/demo/src/auth/model/PostAuthCodeRes.java
  com.example.demo.src.auth.model.PostAuthCodeRes
-com/example/demo/src/user/model/PostUserPasswordReq.java
- com.example.demo.src.user.model.PostUserPasswordReq
-com/example/demo/src/user/UserProvider.java
- com.example.demo.src.user.UserProvider
+com/example/demo/config/BaseResponseStatus.java
+ com.example.demo.config.BaseResponseStatus
+com/example/demo/src/crawling/model/GetNewsListReq.java
+ com.example.demo.src.crawling.model.GetNewsListReq
 com/example/demo/src/user/model/GetUserIdRes.java
  com.example.demo.src.user.model.GetUserIdRes
 com/example/demo/src/user/model/GetUserNicknameRes.java
  com.example.demo.src.user.model.GetUserNicknameRes
-com/example/demo/src/auth/model/User.java
- com.example.demo.src.auth.model.User
-com/example/demo/src/auth/AuthProvider.java
- com.example.demo.src.auth.AuthProvider
+com/example/demo/utils/JwtService.java
+ com.example.demo.utils.JwtService
+com/example/demo/src/post/PostService.java
+ com.example.demo.src.post.PostService
 com/example/demo/src/post/model/GetUserFeedRes.java
  com.example.demo.src.post.model.GetUserFeedRes
-com/example/demo/src/user/model/User.java
- com.example.demo.src.user.model.User
+com/example/demo/src/auth/AuthService.java
+ com.example.demo.src.auth.AuthService
+com/example/demo/src/crawling/model/GetTopFiveKeywordsRes.java
+ com.example.demo.src.crawling.model.GetTopFiveKeywordsRes
 com/example/demo/config/secret/Secret.java
  com.example.demo.config.secret.Secret
 com/example/demo/src/post/PostDao.java
  com.example.demo.src.post.PostDao
 com/example/demo/src/user/model/PostUserRes.java
  com.example.demo.src.user.model.PostUserRes
-com/example/demo/src/user/UserController.java
- com.example.demo.src.user.UserController
-com/example/demo/src/post/model/PostPostsReq.java
- com.example.demo.src.post.model.PostPostsReq
+com/example/demo/config/BaseResponse.java
+ com.example.demo.config.BaseResponse
+com/example/demo/src/auth/model/User.java
+ com.example.demo.src.auth.model.User
 com/example/demo/src/auth/model/PostLoginRes.java
  com.example.demo.src.auth.model.PostLoginRes
-com/example/demo/DemoApplication.java
- com.example.demo.DemoApplication
+com/example/demo/config/BaseException.java
+ com.example.demo.config.BaseException
 com/example/demo/src/post/model/GetUserInfoRes.java
  com.example.demo.src.post.model.GetUserInfoRes
 com/example/demo/src/user/model/GetUserInfoRes.java
  com.example.demo.src.user.model.GetUserInfoRes
-com/example/demo/src/auth/model/PostAuthPasswordCheckReq.java
- com.example.demo.src.auth.model.PostAuthPasswordCheckReq
+com/example/demo/src/user/model/PostUserPasswordReq.java
+ com.example.demo.src.user.model.PostUserPasswordReq
 com/example/demo/src/post/model/GetUserPostsRes.java
  com.example.demo.src.post.model.GetUserPostsRes
 com/example/demo/src/user/model/GetUserFeedRes.java
@@ -60,8 +62,8 @@ com/example/demo/src/user/model/PostUserReq.java
  com.example.demo.src.user.model.PostUserReq
 com/example/demo/src/post/PostProvider.java
  com.example.demo.src.post.PostProvider
-com/example/demo/src/user/UserService.java
- com.example.demo.src.user.UserService
+com/example/demo/src/crawling/T.java
+ com.example.demo.src.crawling.T
 com/example/demo/src/post/model/PostPostsRes.java
  com.example.demo.src.post.model.PostPostsRes
 com/example/demo/src/crawling/model/GetNewsArticleRes.java
@@ -72,8 +74,8 @@ com/example/demo/src/auth/AuthDao.java
  com.example.demo.src.auth.AuthDao
 com/example/demo/src/test/TestController.java
  com.example.demo.src.test.TestController
-com/example/demo/utils/JwtService.java
- com.example.demo.utils.JwtService
+com/example/demo/src/auth/AuthProvider.java
+ com.example.demo.src.auth.AuthProvider
 com/example/demo/src/user/model/GetUserPostsRes.java
  com.example.demo.src.user.model.GetUserPostsRes
 com/example/demo/src/auth/model/PostAuthCodeReq.java
@@ -82,30 +84,30 @@ com/example/demo/src/auth/model/PostLoginReq.java
  com.example.demo.src.auth.model.PostLoginReq
 com/example/demo/src/post/model/PostImgsUrlReq.java
  com.example.demo.src.post.model.PostImgsUrlReq
-com/example/demo/src/post/PostService.java
- com.example.demo.src.post.PostService
-com/example/demo/src/post/PostController.java
- com.example.demo.src.post.PostController
-com/example/demo/src/auth/AuthService.java
- com.example.demo.src.auth.AuthService
-com/example/demo/src/crawling/model/GetNewsListReq.java
- com.example.demo.src.crawling.model.GetNewsListReq
-com/example/demo/config/BaseResponse.java
- com.example.demo.config.BaseResponse
+com/example/demo/src/auth/model/PostAuthPasswordCheckReq.java
+ com.example.demo.src.auth.model.PostAuthPasswordCheckReq
 com/example/demo/src/auth/AuthController.java
  com.example.demo.src.auth.AuthController
-com/example/demo/src/user/UserDao.java
- com.example.demo.src.user.UserDao
-com/example/demo/config/BaseResponseStatus.java
- com.example.demo.config.BaseResponseStatus
-com/example/demo/config/BaseException.java
- com.example.demo.config.BaseException
-com/example/demo/src/crawling/CrawlingDao.java
- com.example.demo.src.crawling.CrawlingDao
+com/example/demo/src/user/model/User.java
+ com.example.demo.src.user.model.User
 com/example/demo/src/crawling/model/GetNewsArticleReq.java
  com.example.demo.src.crawling.model.GetNewsArticleReq
+com/example/demo/src/post/model/PostPostsReq.java
+ com.example.demo.src.post.model.PostPostsReq
+com/example/demo/DemoApplication.java
+ com.example.demo.DemoApplication
+com/example/demo/src/crawling/CrawlingDao.java
+ com.example.demo.src.crawling.CrawlingDao
+com/example/demo/src/user/UserDao.java
+ com.example.demo.src.user.UserDao
+com/example/demo/src/user/UserService.java
+ com.example.demo.src.user.UserService
+com/example/demo/src/user/UserController.java
+ com.example.demo.src.user.UserController
 com/example/demo/src/crawling/CrawlingProvider.java
  com.example.demo.src.crawling.CrawlingProvider
+com/example/demo/src/user/UserProvider.java
+ com.example.demo.src.user.UserProvider
 com/example/demo/src/crawling/CrawlingService.java
  com.example.demo.src.crawling.CrawlingService
 com/example/demo/src/crawling/CrawlingController.java

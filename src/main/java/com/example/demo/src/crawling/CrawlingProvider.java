@@ -106,6 +106,9 @@ public class CrawlingProvider {
 //            System.out.println(newsList.size());
 //            System.out.println(newsList);
 //            System.out.println(page);
+            ArrayList<String> keyword1 = new ArrayList<>();
+            keyword1.add(keyword);
+            newsList.add(keyword1);
             ArrayList<ArrayList<String>> getNewsList10Res = newsList;
             return getNewsList10Res;
 
@@ -145,7 +148,6 @@ public class CrawlingProvider {
             String date = elements2.text();
 
 
-
             return new GetNewsArticleRes(FinalArticle,title,date);
         }
         catch (Exception exception) {
@@ -154,32 +156,15 @@ public class CrawlingProvider {
     }
 
 
-//    public GetUserFeedRes getUsersByIdx(int userIdx) throws BaseException{
-//        try{
-//            GetUserFeedRes getUsersRes = userDao.getUsersByIdx(userIdx);
-//            return getUsersRes;
-//        }
-//        catch (Exception exception) {
-//            throw new BaseException(DATABASE_ERROR);
-//        }
-//    }
 
-
-//    public int checkEmail(String email) throws BaseException{
-//        try{
-//            return userDao.checkEmail(email);
-//        } catch (Exception exception){
-//            throw new BaseException(DATABASE_ERROR);
-//        }
-//    }
-//
-//    public int checkUserExist(int userIdx) throws BaseException{
-//        try{
-//            return userDao.checkUserExist(userIdx);
-//        } catch (Exception exception){
-//            throw new BaseException(DATABASE_ERROR);
-//        }
-//    }
+    public void checkFiveKeywords(int userIdx) throws BaseException{
+        try{
+            crawlingDao.selectTopFiveKeywords(userIdx);
+            return;
+        } catch (Exception exception){
+            throw new BaseException(DATABASE_ERROR);
+        }
+    }
 
 
 

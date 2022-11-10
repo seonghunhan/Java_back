@@ -102,7 +102,7 @@ public class CrawlingController {
             if (getNewsListReq.getPage() == 0) {
                 return new BaseResponse<>(BaseResponseStatus.POST_CRAWLING_EMPTY_PAGE_INFO);
             }
-
+            String keyword = getNewsListReq.getKeyword();
             ArrayList<ArrayList<String>> getNewsList10Res = crawlingProvider.retrieveNewsList(getNewsListReq.getKeyword(), getNewsListReq.getPage());
 
             return new BaseResponse<ArrayList<ArrayList<String>>>(getNewsList10Res);
@@ -143,6 +143,35 @@ public class CrawlingController {
             return new BaseResponse<>(getNewsArticleRes);
         } catch (BaseException exception) {
             return new BaseResponse<>((exception.getStatus()));
+        }
+    }
+
+    /**
+     * 상위 5개 키워드 API
+     * [GET] /crawling/keyword?userIdx=
+     * @return BaseResponse<PostLoginRes>
+     */
+    @ResponseBody
+    @GetMapping("/keyword")
+    public void autologin(@RequestParam(name = "userIdx", defaultValue = "1")int userIdx) {
+        try{
+            System.out.println("asd");
+
+            //jwt에서 idx 추출.
+            //getUserIdx 타고 들가면 거기서 jwt 키 있는지 없는지 유효성 검사 실행함
+            int userIdxByJwt = jwtService.getUserIdx();
+
+            // 실제 Idx와 jwt로 추출한 Idx가 맞는지 유효성검사
+            if(userIdx != userIdxByJwt) {
+                return; //new BaseResponse<>(INVALID_USER_JWT);
+            }
+            String jwt = jwtService.createJwt(userIdx);
+            crawlingProvider.checkFiveKeywords(userIdx);
+            //GetTopFiveKeywordsRes getTopFiveKeywordsRes = crawlingProvider.checkFiveKeywords(userIdx);
+            return; //new BaseResponse<>(getTopFiveKeywordsRes);
+
+        } catch(BaseException exception){
+            return; //new BaseResponse<>((exception.getStatus()));
         }
     }
 

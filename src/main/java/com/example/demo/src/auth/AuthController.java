@@ -10,6 +10,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import static com.example.demo.config.BaseResponseStatus.INVALID_USER_JWT;
 import static com.example.demo.config.BaseResponseStatus.POST_USERS_INVALID_PASSWORD;
 import static com.example.demo.utils.ValidationRegex.isRegexPassword;
 
@@ -53,6 +54,35 @@ public class AuthController {
             return new BaseResponse<>((exception.getStatus()));
         }
     }
+
+    /**
+     * 자동로그인API
+     * [GET] /auth/login/auto?userIdx=
+     * @return BaseResponse<PostLoginRes>
+     */
+    @ResponseBody
+    @GetMapping("/login/auto")
+    public BaseResponse<PostLoginRes> autologin(@RequestParam(name = "userIdx", defaultValue = "1")int userIdx) {
+        try{
+
+            //jwt에서 idx 추출.
+            //getUserIdx 타고 들가면 거기서 jwt 키 있는지 없는지 유효성 검사 실행함
+            int userIdxByJwt = jwtService.getUserIdx();
+
+            // 실제 Idx와 jwt로 추출한 Idx가 맞는지 유효성검사
+            if(userIdx != userIdxByJwt) {
+                return new BaseResponse<>(INVALID_USER_JWT);
+            }
+
+            String jwt = jwtService.createJwt(userIdx);
+
+            return new BaseResponse<>(new PostLoginRes(userIdx, jwt));
+
+        } catch(BaseException exception){
+            return new BaseResponse<>((exception.getStatus()));
+        }
+    }
+
     @ResponseBody
     @PostMapping("/check/sendSMS")
     public BaseResponse<PostAuthCodeRes> sendSMS(@RequestBody PostAuthCodeReq postAuthCodeReq) {
