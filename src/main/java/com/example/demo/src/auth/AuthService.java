@@ -68,6 +68,8 @@ public class AuthService {
             throw new BaseException(BaseResponseStatus.POST_USERS_NOT_EXISTS_ID);
         }
 
+        int userIdx = authDao.selectUserIdxById(postAuthCodeReq.getId());
+
         // Secret.java에 gitignore처리
         String api_key = Secret.SNS_SERVICE_API_KEY; //본인의 API KEY"
         String api_secret = Secret.SNS_SERVICE_API_SECRET_KEY; //본인의 API SECRET
@@ -93,7 +95,7 @@ public class AuthService {
         try {
             JSONObject obj = (JSONObject) coolsms.send(params);
             System.out.println(obj.toString());
-            int userIdx = checkResult;
+
             return new PostAuthCodeRes(numStr, userIdx);
         } catch (CoolsmsException e) {
             System.out.println(e.getMessage());

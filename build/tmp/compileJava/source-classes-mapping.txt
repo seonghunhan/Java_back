@@ -24,8 +24,8 @@ com/example/demo/src/post/PostService.java
  com.example.demo.src.post.PostService
 com/example/demo/src/post/model/GetUserFeedRes.java
  com.example.demo.src.post.model.GetUserFeedRes
-com/example/demo/src/auth/AuthService.java
- com.example.demo.src.auth.AuthService
+com/example/demo/src/crawling/CrawlingService.java
+ com.example.demo.src.crawling.CrawlingService
 com/example/demo/src/crawling/model/GetTopFiveKeywordsRes.java
  com.example.demo.src.crawling.model.GetTopFiveKeywordsRes
 com/example/demo/config/secret/Secret.java
@@ -70,12 +70,12 @@ com/example/demo/src/crawling/model/GetNewsArticleRes.java
  com.example.demo.src.crawling.model.GetNewsArticleRes
 com/example/demo/src/WebSecurityConfig.java
  com.example.demo.src.WebSecurityConfig
-com/example/demo/src/auth/AuthDao.java
- com.example.demo.src.auth.AuthDao
+com/example/demo/src/user/UserProvider.java
+ com.example.demo.src.user.UserProvider
 com/example/demo/src/test/TestController.java
  com.example.demo.src.test.TestController
-com/example/demo/src/auth/AuthProvider.java
- com.example.demo.src.auth.AuthProvider
+com/example/demo/src/crawling/CrawlingProvider.java
+ com.example.demo.src.crawling.CrawlingProvider
 com/example/demo/src/user/model/GetUserPostsRes.java
  com.example.demo.src.user.model.GetUserPostsRes
 com/example/demo/src/auth/model/PostAuthCodeReq.java
@@ -86,8 +86,8 @@ com/example/demo/src/post/model/PostImgsUrlReq.java
  com.example.demo.src.post.model.PostImgsUrlReq
 com/example/demo/src/auth/model/PostAuthPasswordCheckReq.java
  com.example.demo.src.auth.model.PostAuthPasswordCheckReq
-com/example/demo/src/auth/AuthController.java
- com.example.demo.src.auth.AuthController
+com/example/demo/src/user/UserController.java
+ com.example.demo.src.user.UserController
 com/example/demo/src/user/model/User.java
  com.example.demo.src.user.model.User
 com/example/demo/src/crawling/model/GetNewsArticleReq.java
@@ -104,11 +104,11 @@ com/example/demo/src/user/model/GetUserInfoRes.java
  com.example.demo.src.user.model.GetUserInfoRes
 com/example/demo/src/crawling/CrawlingController.java
  com.example.demo.src.crawling.CrawlingController
-com/example/demo/src/crawling/CrawlingProvider.java
- com.example.demo.src.crawling.CrawlingProvider
-com/example/demo/src/user/UserProvider.java
- com.example.demo.src.user.UserProvider
-com/example/demo/src/crawling/CrawlingService.java
- com.example.demo.src.crawling.CrawlingService
-com/example/demo/src/user/UserController.java
- com.example.demo.src.user.UserController
+com/example/demo/src/auth/AuthController.java
+ com.example.demo.src.auth.AuthController
+com/example/demo/src/auth/AuthService.java
+ com.example.demo.src.auth.AuthService
+com/example/demo/src/auth/AuthDao.java
+ com.example.demo.src.auth.AuthDao
+com/example/demo/src/auth/AuthProvider.java
+ com.example.demo.src.auth.AuthProvider

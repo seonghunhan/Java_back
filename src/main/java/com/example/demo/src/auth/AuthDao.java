@@ -68,5 +68,12 @@ public class AuthDao {
         return this.jdbcTemplate.update(modifyUserPasswordQuery,modifyUserPasswordParams);
     }
 
+    public Integer selectUserIdxById(String id){
+        String selectUserIdxByIdQuery = "select userIdx from User where id = ?";
+        //Object[] selectUserIdxByIdParams = new Object[]{id};
+        Integer result = this.jdbcTemplate.queryForObject(selectUserIdxByIdQuery,int.class, id);
+        //System.out.println(result);
+        return(result);
+    }
 
 }
