@@ -236,7 +236,7 @@ public class UserController {
 
 
     /**
-     * 아이디찾기후 비번바꾸기 API (users)
+     * 아이디찾기후 비번바꾸기 API (users) -> 이거 그냥 마이페이지(비번아는상태에서) 바꾸는걸로
      * [POST] /users/searchId/changePassword
      * @return BaseResponse<PostUserRes>
      */
@@ -267,6 +267,34 @@ public class UserController {
         }
     }
 
+
+    /**
+     * 마이페이지 API (users)
+     * [GET] /users/mypage?userIdx=
+     * @return BaseResponse<GetUserNicknameRes>
+     */
+    @ResponseBody
+    @GetMapping("/mypage")
+    public BaseResponse<GetUserInfoRes> getUserInfo(@RequestParam(name = "userIdx", defaultValue = "1")int userIdx)  {
+
+
+
+        try{
+            //jwt에서 idx 추출.
+            //getUserIdx 타고 들가면 거기서 jwt 키 있는지 없는지 유효성 검사 실행함
+            int userIdxByJwt = jwtService.getUserIdx();
+
+            // 실제 Idx와 jwt로 추출한 Idx가 맞는지 유효성검사
+            if(userIdx != userIdxByJwt) {
+                return new BaseResponse<>(INVALID_USER_JWT);
+            }
+
+            GetUserInfoRes getUserInfoRes = userProvider.retrieveUserInfo(userIdx);
+            return new BaseResponse<>(getUserInfoRes);
+        } catch(BaseException exception){
+            return new BaseResponse<>((exception.getStatus()));
+        }
+    }
 
 //        if(postUserReq.getId() == null || postUserReq.getPassword() == null || postUserReq.getPasswordForCheck() == null || postUserReq.getName() == null || postUserReq.getNickName() == null || postUserReq.getPhone() == null || postUserReq.getEmail() == null){
 //        return new BaseResponse<>(POST_USERS_EMPTY_INFO);

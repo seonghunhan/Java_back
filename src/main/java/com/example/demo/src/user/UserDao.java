@@ -112,9 +112,24 @@ public class UserDao {
         Object[] modifyUserPasswordParams = new Object[]{changePwd, userIdx};
         this.jdbcTemplate.update(modifyUserPasswordQuery,modifyUserPasswordParams);
 
-
         return;
+    }
 
+    public GetUserInfoRes selectUserInfoByUserIdx(int userIdx){
+
+        String selectUserInfoQuery = "select id, nickName, phone, email\n" +
+                "from User\n" +
+                "where userIdx = ? ";
+        Object[] selectUserInfoParams = new Object[]{userIdx};
+
+
+        return this.jdbcTemplate.queryForObject(selectUserInfoQuery, //쿼리포오브젝트는 하나의 객체만 반환할때 사용 그냥 쿼리는 리스트같은거 반환할때사용
+                (rs, rowNum) -> new GetUserInfoRes(
+                        rs.getString("id"),
+                        rs.getString("nickName"),
+                        rs.getString("phone"),
+                        rs.getString("email")),
+                selectUserInfoParams);
     }
 
 

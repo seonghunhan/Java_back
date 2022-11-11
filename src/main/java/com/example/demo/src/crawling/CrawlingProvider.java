@@ -2,6 +2,7 @@ package com.example.demo.src.crawling;
 
 import com.example.demo.config.BaseException;
 import com.example.demo.src.crawling.model.GetNewsArticleRes;
+import com.example.demo.src.crawling.model.GetTopFiveKeywordsRes;
 import com.example.demo.utils.JwtService;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.example.demo.config.BaseResponseStatus.DATABASE_ERROR;
 
@@ -157,10 +159,9 @@ public class CrawlingProvider {
 
 
 
-    public void checkFiveKeywords(int userIdx) throws BaseException{
+    public List<GetTopFiveKeywordsRes> checkFiveKeywords(int userIdx) throws BaseException{
         try{
-            crawlingDao.selectTopFiveKeywords(userIdx);
-            return;
+            return crawlingDao.selectTopFiveKeywords(userIdx);
         } catch (Exception exception){
             throw new BaseException(DATABASE_ERROR);
         }

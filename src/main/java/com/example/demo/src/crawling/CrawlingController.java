@@ -6,6 +6,7 @@ import com.example.demo.config.BaseResponseStatus;
 import com.example.demo.src.crawling.model.GetNewsArticleReq;
 import com.example.demo.src.crawling.model.GetNewsArticleRes;
 import com.example.demo.src.crawling.model.GetNewsListReq;
+import com.example.demo.src.crawling.model.GetTopFiveKeywordsRes;
 import com.example.demo.utils.JwtService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -153,7 +154,7 @@ public class CrawlingController {
      */
     @ResponseBody
     @GetMapping("/keyword")
-    public void autologin(@RequestParam(name = "userIdx", defaultValue = "1")int userIdx) {
+    public BaseResponse<List<GetTopFiveKeywordsRes>> autologin(@RequestParam(name = "userIdx", defaultValue = "1")int userIdx) {
         try{
             System.out.println("asd");
 
@@ -163,15 +164,15 @@ public class CrawlingController {
 
             // 실제 Idx와 jwt로 추출한 Idx가 맞는지 유효성검사
             if(userIdx != userIdxByJwt) {
-                return; //new BaseResponse<>(INVALID_USER_JWT);
+                return new BaseResponse<>(INVALID_USER_JWT);
             }
             String jwt = jwtService.createJwt(userIdx);
-            crawlingProvider.checkFiveKeywords(userIdx);
-            //GetTopFiveKeywordsRes getTopFiveKeywordsRes = crawlingProvider.checkFiveKeywords(userIdx);
-            return; //new BaseResponse<>(getTopFiveKeywordsRes);
+            //crawlingProvider.checkFiveKeywords(userIdx);
+            //GetTopFiveKeywordsRes getTopFiveKeywordsRes = (GetTopFiveKeywordsRes) crawlingProvider.checkFiveKeywords(userIdx);
+            return new BaseResponse<>(crawlingProvider.checkFiveKeywords(userIdx));
 
         } catch(BaseException exception){
-            return; //new BaseResponse<>((exception.getStatus()));
+            return new BaseResponse<>((exception.getStatus()));
         }
     }
 

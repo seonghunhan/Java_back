@@ -79,6 +79,16 @@ public class UserProvider {
         }
     }
 
+    public GetUserInfoRes retrieveUserInfo(int userIdx) throws BaseException{
+    try{
+        GetUserInfoRes getUserInfoRes = userDao.selectUserInfoByUserIdx(userIdx);
+        return getUserInfoRes;
+    }
+    catch (Exception exception) {
+        throw new BaseException(DATABASE_ERROR);
+    }
+}
+
 
 //    public GetUserFeedRes retrieveUserFeed(int userIdxByjwt, int userIdx) throws BaseException{
 //        Boolean isMyFeed = true;

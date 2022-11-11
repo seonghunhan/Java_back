@@ -2,11 +2,13 @@ package com.example.demo.src.crawling;
 
 
 import com.example.demo.src.crawling.model.GetNewsArticleReq;
+import com.example.demo.src.crawling.model.GetTopFiveKeywordsRes;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import java.util.List;
 
 @Repository
 public class CrawlingDao {
@@ -29,16 +31,19 @@ public class CrawlingDao {
 
     }
 
-    public void selectTopFiveKeywords(int userIdx){
-        System.out.println("Asdddddd");
+    // .query() 써서 리스트로 보낸거! (여기는 한컬럼에 여러개 보낼때 사용!!!)!!!!!!!!!!!!!!!!!!!!!!!!!!
+    public List<GetTopFiveKeywordsRes> selectTopFiveKeywords(int userIdx){
 
-        String selectFiveKeywordsQuery = "select Keyword_List from Keyword where `"+ userIdx +"` LIMIT 5";
-        Object[] selectFiveKeywordsQueryParams = new Object[]{userIdx};
-        Integer nasd = this.jdbcTemplate.queryForObject(selectFiveKeywordsQuery, int.class ,selectFiveKeywordsQueryParams);
-        System.out.println(nasd);
-        
+        //String selectFiveKeywordsQuery = "select Keyword_List from Keyword where `"+ userIdx +"` LIMIT 5";
+        String selectFiveKeywordsQuery = "select Keyword_List from Keyword where ? LIMIT 5"; //jdbcTemplate에 파람스 넣으면 위처럼 쿼리짜지말고 ? 넣기!
+        int selectFiveKeywordsQueryParams = userIdx;
 
-    }
+        return this.jdbcTemplate.query(selectFiveKeywordsQuery,
+                (rs,rowNum) -> new GetTopFiveKeywordsRes(
+                        rs.getString("Keyword_List")
+                ),selectFiveKeywordsQueryParams);
+        }
+
 
 
 }
