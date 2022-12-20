@@ -167,6 +167,7 @@ public class CrawlingController {
                 return new BaseResponse<>(INVALID_USER_JWT);
             }
             String jwt = jwtService.createJwt(userIdx);
+            System.out.println(crawlingProvider.checkFiveKeywords(userIdx).get(0));
             //crawlingProvider.checkFiveKeywords(userIdx);
             //GetTopFiveKeywordsRes getTopFiveKeywordsRes = (GetTopFiveKeywordsRes) crawlingProvider.checkFiveKeywords(userIdx);
             return new BaseResponse<>(crawlingProvider.checkFiveKeywords(userIdx));

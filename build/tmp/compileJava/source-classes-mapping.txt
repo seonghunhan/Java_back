@@ -102,8 +102,6 @@ com/example/demo/src/user/UserService.java
  com.example.demo.src.user.UserService
 com/example/demo/src/user/model/GetUserInfoRes.java
  com.example.demo.src.user.model.GetUserInfoRes
-com/example/demo/src/crawling/CrawlingController.java
- com.example.demo.src.crawling.CrawlingController
 com/example/demo/src/auth/AuthController.java
  com.example.demo.src.auth.AuthController
 com/example/demo/src/auth/AuthService.java
@@ -112,3 +110,5 @@ com/example/demo/src/auth/AuthDao.java
  com.example.demo.src.auth.AuthDao
 com/example/demo/src/auth/AuthProvider.java
  com.example.demo.src.auth.AuthProvider
+com/example/demo/src/crawling/CrawlingController.java
+ com.example.demo.src.crawling.CrawlingController

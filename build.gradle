@@ -62,7 +62,8 @@ dependencies {
     // 크롤링
     implementation 'org.jsoup:jsoup:1.14.2'
 
-
+    // 로그아웃을 하기위해 Redis설치
+    implementation 'org.springframework.boot:spring-boot-starter-data-redis'
 }
 
 test {
