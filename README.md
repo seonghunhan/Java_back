@@ -1,6 +1,9 @@
 
 ## 국회는 지금 어때? '국룰' 앱  
 
+![image](https://user-images.githubusercontent.com/88662101/230559934-2054b830-7e65-44ab-99cd-73a9180911ae.png)
+
+
 <br>
 
 ## 프로젝트 설명  
