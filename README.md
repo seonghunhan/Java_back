@@ -1,8 +1,28 @@
-#### Springboot java (패키지매니저 = Maven (= Spring 선호), Gradle (Springboot 선호))
-> Request(시작) / Response(끝) ⇄ Controller(= Router + Controller) ⇄ Service (CUD) / Provider (R) ⇄ DAO (DB)
+#### 국회는 지금 어때? '국룰' 앱
+
+## 프로젝트 설명
+
+<br>
+
+- 국회에 관한 다양한 정보를 제공하는 앱 개발  
+- 국회 관련 뉴스 및 예산사용 현황 제공  
+- 사용 언어 / 프레임워크 : Java / Spring Boot framework  
+- 개발 tool : IntelliJ,  DataGrip, Postman, GitHub  
+
+
+
+<br>
+<br>
+
 
 ## Structure
-앞에 (*)이 붙어있는 파일(or 폴더)은 추가적인 과정 이후에 생성된다.
+
+<br>
+
+java (패키지매니저 =  Gradle)  
+> Request(시작) / Response(끝) ⇄ Controller(= Router + Controller) ⇄ Service (CUD) / Provider (R) ⇄ DAO (DB)
+
+
 ```text
 api-server-spring-boot
   > * build
@@ -45,3 +65,24 @@ build.gradle // gradle 빌드시에 필요한 dependency 설정하는 곳
 .gitignore // git 에 포함되지 않아야 하는 폴더, 파일들을 작성 해놓는 곳
 
 ```
+
+<br>
+<br>
+
+## Wire-Frame
+
+![image](https://user-images.githubusercontent.com/88662101/230558490-1e3071e4-e7ba-42ca-a488-f57b46690764.png)  
+
+
+<br>
+<br>
+
+## 시연영상
+
+- https://youtu.be/wc-d5JSbVng
+
+
+
+
+
+
